@@ -19,7 +19,7 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Animator.py" />
+    <Compile Include="animator.py" />
     <Compile Include="fib.py" />
     <Compile Include="reverse.py" />
     <Compile Include="reverseTest.py" />

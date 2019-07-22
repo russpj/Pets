@@ -6,6 +6,10 @@ class Animator:
             callback()
 
     def SetCallback(newCallback):
-        callback = newCallback
+        self.callback = newCallback
+
+    def PrintIfNoCallback(self, message):
+        if self.callback is None:
+            print(message)
 
     callback = None

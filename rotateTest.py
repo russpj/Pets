@@ -6,22 +6,21 @@ test = []
 for n in range(10):
 	test.append(n)
 
-def AnimStep():
-	print(test)
+animator = animator.Animator()
 	
-def TestOnce(description, list, size, rotator, offset):
+def TestOnce(description, list, size, rotator, offset, animator):
 	print('{0} {1}'.format(description, offset))
 	print(list)
 	rotator(list, 0, size, offset)
-	print(list)
+	animator.PrintIfNoCallback(list)
 	print('{0} {1}'.format(description, size-offset))
 	rotator(list, 0, size, size-offset)
-	print(list)
+	animator.PrintIfNoCallback(list)
 
-TestOnce('By Reverse', test, 10, rotate.RotateRev, 4)
+TestOnce('Rotate by Reverse', test, 10, rotate.RotateRev, 4, animator)
 
-TestOnce('By Round Robin', test, 10, rotate.RotateRound, 4)
+TestOnce('Rotate by Round Robin', test, 10, rotate.RotateRound, 4, animator)
 
-TestOnce('By Swap', test, 10, rotate.RotateSwap, 4)
+TestOnce('Rotate by Swap', test, 10, rotate.RotateSwap, 4, animator)
 
 
