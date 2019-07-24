@@ -1,24 +1,22 @@
 from reverse import Reverse
 from reverse import Swap
+from animator import Animator
 
-def AnimStepperDefault():
-	return
-	
-AnimStepper = AnimStepperDefault
+rotatorAnimator = Animator()
 
-def SetupAnim(animStep):
-	global AnimStepper
-	AnimStepper = animStep
+def SetupAnim(animator):
+	global rotatorAnimator
+	rotatorAnimator = animator
 
 def RotateRev(list, begin, end, offset):
 	Reverse(list, begin, offset)
-	AnimStepper()
+	rotatorAnimator.Execute()
 	Reverse(list, offset, end)
-	AnimStepper()
+	rotatorAnimator.Execute()
 	Reverse(list, begin, end)
-	AnimStepper()
+	rotatorAnimator.Execute()
 	return
-	
+
 def GetNext(current, offset, begin, end):
 	next = current + offset
 	if next >= end:
@@ -46,9 +44,8 @@ def SwapRange(list, begin, end, other):
 		Swap(list, begin, other)
 		begin=begin+1
 		other=other+1
-	AnimStepper()
-	return
-	
+	rotatorAnimator.Execute()
+
 def RotateSwap(list, begin, end, offset):
 	if offset==0:
 		return

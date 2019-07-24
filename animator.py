@@ -1,7 +1,7 @@
 
 
 class Animator:
-    def Exectute():
+    def Execute(self):
         if callback is not None:
             callback()
 
