@@ -31,7 +31,7 @@ def RotateRound(list, begin, end, offset):
 		second = GetNext(first, offset, begin, end)
 		while second != start:
 			Swap(list, first, second)
-			AnimStepper()
+			rotatorAnimator.Execute()
 			moved = moved+1
 			first = second
 			second = GetNext(second, offset, begin, end)

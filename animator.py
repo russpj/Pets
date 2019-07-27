@@ -1,15 +1,15 @@
 
 
 class Animator:
-    def Execute(self):
-        if callback is not None:
-            callback()
+	def Execute(self):
+		if self.callback is not None:
+			self.callback()
 
-    def SetCallback(newCallback):
-        self.callback = newCallback
+	def SetCallback(newCallback):
+		self.callback = newCallback
 
-    def PrintIfNoCallback(self, message):
-        if self.callback is None:
-            print(message)
+	def PrintIfNoCallback(self, message):
+		if self.callback is None:
+			print(message)
 
-    callback = None
+	callback = None
