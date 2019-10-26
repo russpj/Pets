@@ -1,4 +1,4 @@
-from mapper import Mapper
+from mapper import ViewPortMapper
 
 def Test(mapper, x, y):
 	result = mapper.Map(x, y)
@@ -11,13 +11,13 @@ def RunTests(mapper, steps):
 	for test in tests:
 		Test(map, width*test/steps, height*test/steps)
 
-ll = complex(-2, -2)
-ur = complex(2, 2)
+ll = complex(-1, -1)
+ur = complex(3, 3)
 
 width = 100
-height = 100
+height = 200
 steps = 4
 
-map = Mapper(ll, ur, width, height)
+map = ViewPortMapper(ll, ur, width, height)
 
 RunTests(map, steps)
