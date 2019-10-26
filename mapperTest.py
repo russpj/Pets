@@ -11,9 +11,9 @@ width = 100
 height = 200
 steps = 4
 
-mapper = Mapper(ll, ur, width, height)
+map = Mapper(ll, ur, width, height)
 
 tests = range(steps+1)
 
 for test in tests:
-	Test(mapper, width*test/steps, height*test/steps)
+	Test(map, width*test/steps, height*test/steps)

@@ -9,10 +9,10 @@ class Mapper:
 		self.FitViewPort()
 
 	def FitViewPort(self):
+		horizontalScale = (self.urOriginal.real-self.llOriginal.real)/self.width
+		verticalScale = (self.urOriginal.imag-self.llOriginal.imag)/self.height
 		self.ll = self.llOriginal
 		self.ur = self.urOriginal
-		horizontalScale = (self.ur.real-self.ll.real)/self.width
-		verticalScale = (self.ur.imag-self.ll.imag)/self.height
 
 	def Map(self, x, y):
 		realPart = self.ll.real + x*(self.ur.real-self.ll.real)/self.width
