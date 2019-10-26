@@ -12,6 +12,8 @@
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <InterpreterId />
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <Environment>KIVY_GL_BACKEND=angle_sdl2</Environment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -21,10 +23,12 @@
   <ItemGroup>
     <Compile Include="animator.py" />
     <Compile Include="fib.py" />
+    <Compile Include="MandelbrotSet.py" />
     <Compile Include="reverse.py" />
     <Compile Include="reverseTest.py" />
     <Compile Include="rotate.py" />
     <Compile Include="rotateTest.py" />
+    <Compile Include="TestMand.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>
