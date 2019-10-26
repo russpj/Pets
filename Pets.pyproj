@@ -27,6 +27,9 @@
     <Compile Include="mapper.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="backgroundtutorial.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="reverse.py" />
     <Compile Include="reverseTest.py" />
     <Compile Include="rotate.py" />
