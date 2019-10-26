@@ -24,11 +24,14 @@
     <Compile Include="animator.py" />
     <Compile Include="fib.py" />
     <Compile Include="MandelbrotSet.py" />
+    <Compile Include="mapper.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="reverse.py" />
     <Compile Include="reverseTest.py" />
     <Compile Include="rotate.py" />
     <Compile Include="rotateTest.py" />
-    <Compile Include="TestMand.py" />
+    <Compile Include="mapperTest.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>
