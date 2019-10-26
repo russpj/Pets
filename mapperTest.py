@@ -2,18 +2,22 @@ from mapper import Mapper
 
 def Test(mapper, x, y):
 	result = mapper.Map(x, y)
-	print('({0}, {1}) maps to {2} + {3}i'.format(x, y, result.real, result.imag))
+	print('({0}, {1}) maps to {2}'.format(x, y, result))
+
+def RunTests(mapper, steps):
+	print('run of {0} steps covering {1} to {2}'.format(steps+1, mapper.llOriginal, mapper.urOriginal))
+	print('expanded range is {0} to {1}'.format(mapper.ll, mapper.ur))
+	tests = range(steps+1)
+	for test in tests:
+		Test(map, width*test/steps, height*test/steps)
 
 ll = complex(-2, -2)
 ur = complex(2, 2)
 
 width = 100
-height = 200
+height = 100
 steps = 4
 
 map = Mapper(ll, ur, width, height)
 
-tests = range(steps+1)
-
-for test in tests:
-	Test(map, width*test/steps, height*test/steps)
+RunTests(map, steps)

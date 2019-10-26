@@ -11,8 +11,17 @@ class Mapper:
 	def FitViewPort(self):
 		horizontalScale = (self.urOriginal.real-self.llOriginal.real)/self.width
 		verticalScale = (self.urOriginal.imag-self.llOriginal.imag)/self.height
-		self.ll = self.llOriginal
-		self.ur = self.urOriginal
+		viewPortMidPoint = (self.llOriginal+self.urOriginal)/2
+		if horizontalScale > verticalScale:
+			self.ll = complex(self.llOriginal.real, 
+										 viewPortMidPoint.imag+(self.llOriginal.imag-viewPortMidPoint.imag)*horizontalScale)
+			self.ur = complex(self.urOriginal.real, 
+										 viewPortMidPoint.imag+(self.urOriginal.imag-viewPortMidPoint.imag)*horizontalScale)
+		else:
+			self.ll = complex(viewPortMidPoint.real+(self.llOriginal.real-viewPortMidPoint.real)*verticalScale, 
+										 self.llOriginal.imag)
+			self.ur = complex(viewPortMidPoint.real+(self.urOriginal.real-viewPortMidPoint.real)*verticalScale, 
+										 self.urOriginal.imag)
 
 	def Map(self, x, y):
 		realPart = self.ll.real + x*(self.ur.real-self.ll.real)/self.width
