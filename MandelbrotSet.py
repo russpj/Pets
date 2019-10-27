@@ -1,8 +1,9 @@
 from kivy.app import App
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.widget import Widget
-from kivy.graphics import Color, Ellipse
+from kivy.graphics import Color, Ellipse, Rectangle
 from mapper import ViewPortMapper
 
 class Arena(Widget):
@@ -29,19 +30,25 @@ class Arena(Widget):
 
 class MandApp(App):
 	def build(self):
-		grid = GridLayout(cols=2)
+		self.root = layout = FloatLayout()
+		layout.bind(size=self._update_rect, pos=self._update_rect)
 
 		ll = complex(-2.0, -2.0)
 		ur = complex(2.0, 2.0)
 		caption = 'Mandelbrot Set on grid from {0} to {1}'.format(ll, ur)
 
-		hello = Button(text='Hello World')
-		hello.background_color = [1, 0, 1, 1]
-		grid.add_widget(hello)
+		with layout.canvas.before:
+			Color(0.1, .9, 0.1, 1)  # green; colors range from 0-1 not 0-255
+			self.rect = Rectangle(size=layout.size, pos=layout.pos)
+			Color(0.1, .1, .9, 1)
+			self.ellipse = Ellipse(size=layout.size, pos=layout.pos)
 
-		grid.add_widget(Arena())
+		return layout
 
-		return grid
+	def _update_rect(self, instance, value):
+		self.ellipse.pos = self.rect.pos = instance.pos
+		self.ellipse.pos = self.rect.size = instance.size
+		
 
 if __name__ == '__main__':
 	MandApp().run()
