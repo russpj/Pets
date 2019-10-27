@@ -46,9 +46,20 @@ class MandApp(App):
 		return layout
 
 	def _update_rect(self, instance, value):
-		self.ellipse.pos = self.rect.pos = instance.pos
-		self.ellipse.size = self.rect.size = instance.size
-		
+		self.rect.pos = instance.pos
+		self.rect.size = instance.size
+		instanceX = instance.pos[0]
+		instanceY = instance.pos[1]
+		instanceWidth = instance.size[0]
+		instanceHeight = instance.size[1]
+		if instanceWidth < instanceHeight:
+			ellipseSize = [instanceWidth, instanceWidth]
+			ellipsePos = [instanceX, instanceY - (instanceWidth-instanceHeight)/2]
+		else:
+			ellipseSize = [instanceHeight, instanceHeight]
+			ellipsePos = [instanceX - (instanceHeight-instanceWidth)/2, instanceY]
+		self.ellipse.pos = ellipsePos
+		self.ellipse.size = ellipseSize
 
 if __name__ == '__main__':
 	MandApp().run()
