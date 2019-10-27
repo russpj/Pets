@@ -47,7 +47,7 @@ class MandApp(App):
 
 	def _update_rect(self, instance, value):
 		self.ellipse.pos = self.rect.pos = instance.pos
-		self.ellipse.pos = self.rect.size = instance.size
+		self.ellipse.size = self.rect.size = instance.size
 		
 
 if __name__ == '__main__':
