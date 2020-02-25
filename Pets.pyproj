@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{f582de93-1b20-426e-bb13-9f91655c2431}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>fib.py</StartupFile>
+    <StartupFile>MandelbrotSet.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -14,6 +14,7 @@
     <InterpreterId />
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
     <Environment>KIVY_GL_BACKEND=angle_sdl2</Environment>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />

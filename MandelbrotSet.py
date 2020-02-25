@@ -3,7 +3,7 @@ from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.widget import Widget
-from kivy.graphics import Color, Ellipse, Rectangle
+from kivy.graphics import Color, Ellipse, Rectangle, Line
 from kivy.clock import Clock
 from mapper import ViewPortMapper
 
@@ -58,6 +58,7 @@ class MandApp(App):
 		return layout
 
 	def _update_rect(self, instance, value):
+		self.root.canvas.clear()
 		self.rect.pos = instance.pos
 		self.rect.size = instance.size
 		instanceX = instance.pos[0]
@@ -72,11 +73,11 @@ class MandApp(App):
 			ellipsePos = [instanceX - (instanceHeight-instanceWidth)/2, instanceY]
 		self.ellipse.pos = ellipsePos
 		self.ellipse.size = ellipseSize
-		Clock.schedule_once(self.CalculateMandelbrotDisplay, 1)
+		Clock.schedule_once(self.CalculateMandelbrotDisplay, 4)
 
 	def CalculateMandelbrotDisplay(self, dt):
 		colorMin = Color(1, 0, 0)
-		colorMax = Color(0, 1, 0)
+		colorMax = Color(.8, .8, 0)
 		windowWidth = int(self.rect.size[0])
 		windowHeight = int(self.rect.size[1])
 		mapper = ViewPortMapper(self.ll, self.ur, windowWidth, windowHeight)
@@ -93,11 +94,10 @@ class MandApp(App):
 		canvas.clear()
 		with canvas:
 			for x in range(self.root.size[0]):
-				Color(0,0,0)
-				Rectangle(pos=[x,0], size=[1, self.root.size[1]])
 				for y in range(self.root.size[1]):
-					Color(self.display[x][y])
-					Rectangle(pos=[x,y], size=[1,1])
+					colorPoint = self.display[x][y]
+					Color(colorPoint.r, colorPoint.g, colorPoint.b)
+					Line(points=[x, y, x, y+1], width=1)
 
 if __name__ == '__main__':
 	MandApp().run()
